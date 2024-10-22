@@ -1,0 +1,82 @@
+[gd_scene load_steps=18 format=3 uid="uid://cxqnwrnvyruca"]
+
+[ext_resource type="Texture2D" uid="uid://x3oyefrrr7av" path="res://Sprites/Power Orbs/Battery1.png" id="1_2spsw"]
+[ext_resource type="Script" path="res://Scripts/PowerOrb.gd" id="1_adrob"]
+[ext_resource type="Texture2D" uid="uid://dq1s2542xjxqm" path="res://Sprites/Power Orbs/Battery2.png" id="2_oj4bk"]
+[ext_resource type="Texture2D" uid="uid://df0m3ew5firi4" path="res://Sprites/Power Orbs/Battery3.png" id="3_x8gbf"]
+[ext_resource type="Texture2D" uid="uid://2qxid6s41nsc" path="res://Sprites/Power Orbs/Battery4.png" id="4_w13sg"]
+[ext_resource type="Texture2D" uid="uid://b4y6r8q4ca7g3" path="res://Sprites/Power Orbs/Battery5.png" id="5_1wnam"]
+[ext_resource type="Texture2D" uid="uid://df5qad1h2y3g1" path="res://Sprites/Power Orbs/Battery6.png" id="6_0364a"]
+[ext_resource type="Texture2D" uid="uid://c5w7x3np8m33u" path="res://Sprites/Power Orbs/Battery7.png" id="7_xxqk6"]
+[ext_resource type="Texture2D" uid="uid://t5sqkvk5ua3o" path="res://Sprites/Power Orbs/Battery8.png" id="8_iv5id"]
+[ext_resource type="Texture2D" uid="uid://bk5yhrglrop4e" path="res://Sprites/Power Orbs/Battery9.png" id="9_uk5wy"]
+[ext_resource type="Texture2D" uid="uid://chjahun1ahv6a" path="res://Sprites/Power Orbs/Battery10.png" id="10_qht5v"]
+[ext_resource type="Texture2D" uid="uid://cuv3awtmytip2" path="res://Sprites/Power Orbs/Battery11.png" id="11_8yhst"]
+[ext_resource type="Texture2D" uid="uid://31ydluefnvhp" path="res://Sprites/Power Orbs/Battery12.png" id="12_7n3mj"]
+[ext_resource type="Texture2D" uid="uid://dvodnxngcrdv1" path="res://Sprites/Power Orbs/Battery13.png" id="13_hdd5e"]
+[ext_resource type="Texture2D" uid="uid://cbvqk78xj8w6d" path="res://Sprites/Power Orbs/Battery14.png" id="14_4207c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6nlgs"]
+size = Vector2(12, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iplbf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2spsw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_oj4bk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_x8gbf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_w13sg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1wnam")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0364a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xxqk6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_iv5id")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_uk5wy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qht5v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8yhst")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_7n3mj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_hdd5e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_4207c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="PowerOrb" type="Area2D" groups=["PowerOrb", "Pushable"]]
+z_index = -2
+script = ExtResource("1_adrob")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6nlgs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_iplbf")
+autoplay = "default"
+frame_progress = 0.426232

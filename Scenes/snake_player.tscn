@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dijyi58p1cpce"]
+
+[ext_resource type="Script" path="res://Scripts/SnakePlayer.gd" id="1_2tt82"]
+[ext_resource type="Texture2D" uid="uid://2expfqopqo4y" path="res://Sprites/Line_Texture.png" id="2_nygog"]
+[ext_resource type="Texture2D" uid="uid://inahg33vhl5s" path="res://Sprites/PlugSprite.png" id="3_5u64p"]
+[ext_resource type="Script" path="res://Scripts/UndoManager.gd" id="4_x86lh"]
+
+[node name="SnakePlayer" type="Node2D" groups=["Player"]]
+script = ExtResource("1_2tt82")
+starting_snake = Array[Vector2]([Vector2(0, 0), Vector2(1, 0), Vector2(2, 0), Vector2(2, 1), Vector2(3, 1), Vector2(3, 0), Vector2(4, 0)])
+
+[node name="SnakeBlockContainer" type="Node2D" parent="."]
+
+[node name="MoveCheckRay" type="RayCast2D" parent="."]
+collision_mask = 3
+collide_with_areas = true
+
+[node name="SnakeConnector" type="Line2D" parent="."]
+modulate = Color(1.61719e-05, 0.38658, 0.930211, 1)
+z_index = -1
+points = PackedVector2Array(0, 0)
+width = 8.0
+texture = ExtResource("2_nygog")
+texture_mode = 1
+
+[node name="PlugSprite" type="Sprite2D" parent="."]
+z_index = -2
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_5u64p")
+
+[node name="UndoManager" type="Node2D" parent="."]
+script = ExtResource("4_x86lh")

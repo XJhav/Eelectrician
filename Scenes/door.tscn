@@ -1,0 +1,65 @@
+[gd_scene load_steps=12 format=3 uid="uid://cmit6iuqymnex"]
+
+[ext_resource type="Script" path="res://Scripts/Door.gd" id="1_1xxay"]
+[ext_resource type="Texture2D" uid="uid://k1hs8j05pu4t" path="res://Sprites/Door Blocks/DoorBlocks1.png" id="1_kakhg"]
+[ext_resource type="Texture2D" uid="uid://dr3qche5lfvym" path="res://Sprites/Door Blocks/DoorBlocks2.png" id="2_treto"]
+[ext_resource type="Texture2D" uid="uid://cgtj604025sm4" path="res://Sprites/Door Blocks/DoorBlocks3.png" id="3_00cds"]
+[ext_resource type="Texture2D" uid="uid://d1h6ahv665cw2" path="res://Sprites/Door Blocks/DoorBlocks4.png" id="4_ussh3"]
+[ext_resource type="Texture2D" uid="uid://bdxlaf5r50fow" path="res://Sprites/Door Blocks/DoorBlocks5.png" id="5_o52ks"]
+[ext_resource type="Texture2D" uid="uid://jb7b1nukjlx7" path="res://Sprites/Door Blocks/DoorBlocks6.png" id="6_vg7br"]
+[ext_resource type="Texture2D" uid="uid://cgkt27s6k00hn" path="res://Sprites/Door Blocks/DoorBlocks7.png" id="7_ab57d"]
+[ext_resource type="Texture2D" uid="uid://b62mupj3264vg" path="res://Sprites/Door Blocks/DoorBlocks8.png" id="8_obriu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ckf3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kakhg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_treto")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_00cds")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ussh3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_o52ks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vg7br")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ab57d")
+}],
+"loop": true,
+"name": &"Passable",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_obriu")
+}],
+"loop": true,
+"name": &"Solid",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kiipf"]
+size = Vector2(10, 10)
+
+[node name="Door" type="Area2D" groups=["Door", "Solid"]]
+script = ExtResource("1_1xxay")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6ckf3")
+animation = &"Solid"
+autoplay = "Passable"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kiipf")
+
+[connection signal="mouse_entered" from="." to="." method="_mouse_entered_area"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

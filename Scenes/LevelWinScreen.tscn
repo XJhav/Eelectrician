@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpt1ojvdvr0bt"]
+
+[ext_resource type="Script" path="res://Scripts/LevelWinScreen.gd" id="1_0cngs"]
+[ext_resource type="Texture2D" uid="uid://c3ri0l1jqkxoh" path="res://Sprites/LevelCompleteBannaer3.png" id="2_o2rab"]
+
+[node name="LevelCompleteScreen" type="CanvasLayer"]
+layer = 8
+offset = Vector2(-240, -135)
+transform = Transform2D(1, 0, 0, 1, -240, -135)
+follow_viewport_enabled = true
+script = ExtResource("1_0cngs")
+transition = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.329412)
+
+[node name="Banner" type="TextureRect" parent="."]
+offset_left = -600.0
+offset_top = 180.0
+offset_bottom = 228.0
+texture = ExtResource("2_o2rab")

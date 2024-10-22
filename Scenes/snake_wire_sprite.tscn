@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb0nu51uld5x2"]
+
+[ext_resource type="Texture2D" uid="uid://cip4cv7ok122e" path="res://Sprites/Blocks/Wire Block Pieces/SnakeWireBlock.png" id="1_bkesx"]
+
+[node name="WireSprite" type="Sprite2D"]
+modulate = Color(1, 1, 0.654902, 1)
+texture = ExtResource("1_bkesx")

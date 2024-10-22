@@ -1,0 +1,191 @@
+[gd_scene load_steps=13 format=3 uid="uid://b0g1h3jm54anr"]
+
+[ext_resource type="Script" path="res://Scripts/WorldSelect.gd" id="1_28skr"]
+[ext_resource type="PackedScene" uid="uid://bl12nhtb387e5" path="res://Scenes/shader_layer.tscn" id="2_o05um"]
+[ext_resource type="Texture2D" uid="uid://cm36ytn6ubfjg" path="res://Sprites/UI/pausebutton7.png" id="4_jia0h"]
+[ext_resource type="Texture2D" uid="uid://b2utixqrqrb6d" path="res://Sprites/UI/pausebutton9.png" id="5_om0a7"]
+[ext_resource type="Texture2D" uid="uid://b68lowy5m1l2d" path="res://Sprites/UI/pausebutton8.png" id="6_dbids"]
+[ext_resource type="Texture2D" uid="uid://0nkhcesb8wbp" path="res://Sprites/UI/Button1.png" id="7_420hu"]
+[ext_resource type="Script" path="res://Scripts/SceneLoadButton.gd" id="7_x8pvh"]
+[ext_resource type="Texture2D" uid="uid://m6ckccntnoru" path="res://Sprites/UI/Button3.png" id="8_3osfv"]
+[ext_resource type="Texture2D" uid="uid://m860as2fk6rv" path="res://Sprites/UI/Button2.png" id="9_n67op"]
+[ext_resource type="Texture2D" uid="uid://c82ga6nw0fqgo" path="res://Sprites/UI/Button4.png" id="10_wq58t"]
+[ext_resource type="Texture2D" uid="uid://b8bicpy2xl2lo" path="res://Sprites/UI/SceneTitles1.png" id="11_w263p"]
+[ext_resource type="Texture2D" uid="uid://b8q1tq2giftqo" path="res://Sprites/UI/line.png" id="12_wdor2"]
+
+[node name="WorldSelect" type="Control" node_paths=PackedStringArray("world_2_button", "world_3_button", "level_counter")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_28skr")
+world_2_button = NodePath("CanvasLayer/World2")
+world_3_button = NodePath("CanvasLayer/World3")
+level_counter = NodePath("CanvasLayer/Level Counter")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ShaderLayer" parent="." instance=ExtResource("2_o05um")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(-240, -135)
+transform = Transform2D(1, 0, 0, 1, -240, -135)
+follow_viewport_enabled = true
+
+[node name="BackButton" type="TextureButton" parent="CanvasLayer"]
+offset_left = 11.0
+offset_top = 8.0
+offset_right = 36.0
+offset_bottom = 33.0
+texture_normal = ExtResource("4_jia0h")
+texture_pressed = ExtResource("5_om0a7")
+texture_hover = ExtResource("6_dbids")
+script = ExtResource("7_x8pvh")
+level_load_key = "main"
+
+[node name="World1" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -2.0
+offset_right = 34.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("7_420hu")
+texture_pressed = ExtResource("8_3osfv")
+texture_hover = ExtResource("9_n67op")
+texture_disabled = ExtResource("10_wq58t")
+script = ExtResource("7_x8pvh")
+level_load_key = "level_select_blue"
+
+[node name="Label" type="Label" parent="CanvasLayer/World1"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 65.0
+offset_bottom = 20.0
+text = "WORLD 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="World2" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = 26.0
+offset_right = 34.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+disabled = true
+texture_normal = ExtResource("7_420hu")
+texture_pressed = ExtResource("8_3osfv")
+texture_hover = ExtResource("9_n67op")
+texture_disabled = ExtResource("10_wq58t")
+script = ExtResource("7_x8pvh")
+level_load_key = "level_select_green"
+
+[node name="Label" type="Label" parent="CanvasLayer/World2"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 66.0
+offset_bottom = 20.0
+text = "LOCKED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RequirementLabel" type="Label" parent="CanvasLayer/World2"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 2.0
+offset_right = 140.0
+offset_bottom = 20.0
+text = "10 LEVELS REQ."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="World3" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = 54.0
+offset_right = 34.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+disabled = true
+texture_normal = ExtResource("7_420hu")
+texture_pressed = ExtResource("8_3osfv")
+texture_hover = ExtResource("9_n67op")
+texture_disabled = ExtResource("10_wq58t")
+script = ExtResource("7_x8pvh")
+level_load_key = "level_select_red"
+
+[node name="Label" type="Label" parent="CanvasLayer/World3"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 65.0
+offset_bottom = 20.0
+text = "LOCKED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RequirementLabel" type="Label" parent="CanvasLayer/World3"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 2.0
+offset_right = 141.0
+offset_bottom = 20.0
+text = "20 LEVELS REQ."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level Counter" type="Label" parent="CanvasLayer"]
+offset_left = 115.0
+offset_top = 96.0
+offset_right = 366.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(1, 1, 0.219608, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.4, 0.407843, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 32
+text = "LEVELS COMPLETED: 0"
+horizontal_alignment = 1
+
+[node name="Title" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -140.0
+offset_top = 22.0
+offset_right = 140.0
+offset_bottom = 71.0
+grow_horizontal = 2
+texture = ExtResource("11_w263p")
+stretch_mode = 2
+
+[node name="Line" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -249.0
+offset_top = 68.0
+offset_right = 251.0
+offset_bottom = 117.0
+grow_horizontal = 2
+texture = ExtResource("12_wdor2")
+stretch_mode = 2

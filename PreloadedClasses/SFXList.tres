@@ -1,0 +1,79 @@
+[gd_resource type="Resource" script_class="SoundList" load_steps=18 format=3 uid="uid://4hfbkqufqh8m"]
+
+[ext_resource type="Script" path="res://Scripts/Classes/SoundListClass.gd" id="1_wwk1r"]
+[ext_resource type="Script" path="res://Scripts/Classes/SoundClass.gd" id="2_lu442"]
+[ext_resource type="AudioStream" uid="uid://dt73khj52j6ve" path="res://Sounds/Move1.mp3" id="3_phe6u"]
+[ext_resource type="AudioStream" uid="uid://brvqccki5c0ft" path="res://Sounds/Undo1.mp3" id="4_xebtf"]
+[ext_resource type="AudioStream" uid="uid://c6xsem4pxtd5s" path="res://Sounds/Transition1.mp3" id="5_trowx"]
+[ext_resource type="AudioStream" uid="uid://b7u16osai36yq" path="res://Sounds/Pause1.mp3" id="6_236hw"]
+[ext_resource type="AudioStream" uid="uid://dxo51g8rntuyx" path="res://Sounds/Win2.mp3" id="7_ls18j"]
+[ext_resource type="AudioStream" uid="uid://twc20cqr4764" path="res://Sounds/Power1.mp3" id="8_5jjmh"]
+[ext_resource type="AudioStream" uid="uid://c67u86rvtqvic" path="res://Sounds/Collectable1.mp3" id="9_xmfc5"]
+
+[sub_resource type="Resource" id="Resource_7snbt"]
+script = ExtResource("2_lu442")
+name = "Move"
+sound_file = ExtResource("3_phe6u")
+volume = 2.6
+pitch = 1.0
+bus = "SFX"
+
+[sub_resource type="Resource" id="Resource_snat2"]
+script = ExtResource("2_lu442")
+name = "Undo"
+sound_file = ExtResource("4_xebtf")
+volume = 0.0
+pitch = 1.0
+bus = "SFX"
+
+[sub_resource type="Resource" id="Resource_qvv3n"]
+script = ExtResource("2_lu442")
+name = "Whoosh"
+sound_file = ExtResource("5_trowx")
+volume = 9.3
+pitch = 1.0
+bus = "SFX"
+
+[sub_resource type="Resource" id="Resource_22h5j"]
+script = ExtResource("2_lu442")
+name = "Pause"
+sound_file = ExtResource("6_236hw")
+volume = -3.2
+pitch = 1.0
+bus = "SFX"
+
+[sub_resource type="Resource" id="Resource_f4d8e"]
+script = ExtResource("2_lu442")
+name = "UI"
+sound_file = ExtResource("4_xebtf")
+volume = -4.3
+pitch = 1.8
+bus = "SFX"
+
+[sub_resource type="Resource" id="Resource_c1ewk"]
+script = ExtResource("2_lu442")
+name = "Win"
+sound_file = ExtResource("7_ls18j")
+volume = 0.0
+pitch = 1.0
+bus = "SFX"
+
+[sub_resource type="Resource" id="Resource_sn8jb"]
+script = ExtResource("2_lu442")
+name = "Power"
+sound_file = ExtResource("8_5jjmh")
+volume = 0.0
+pitch = 1.0
+bus = "SFX"
+
+[sub_resource type="Resource" id="Resource_335ri"]
+script = ExtResource("2_lu442")
+name = "Collect"
+sound_file = ExtResource("9_xmfc5")
+volume = 0.0
+pitch = 1.0
+bus = "SFX"
+
+[resource]
+script = ExtResource("1_wwk1r")
+sound_list = Array[ExtResource("2_lu442")]([SubResource("Resource_7snbt"), SubResource("Resource_snat2"), SubResource("Resource_qvv3n"), SubResource("Resource_22h5j"), SubResource("Resource_f4d8e"), SubResource("Resource_c1ewk"), SubResource("Resource_sn8jb"), SubResource("Resource_335ri")])

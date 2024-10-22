@@ -1,0 +1,100 @@
+[gd_scene load_steps=20 format=3 uid="uid://61ov2bwbkhio"]
+
+[ext_resource type="Texture2D" uid="uid://ddpgko3s0ssxj" path="res://Sprites/Blocks/Wire Block Pieces/WireBlock1.png" id="1_60u3t"]
+[ext_resource type="Script" path="res://Scripts/wire_block.gd" id="1_r63g0"]
+[ext_resource type="Texture2D" uid="uid://c3f0mol41ykkd" path="res://Sprites/Blocks/Wire Block Pieces/WireBlock2.png" id="3_8cj7c"]
+[ext_resource type="Texture2D" uid="uid://dduhe3gg8naqp" path="res://Sprites/Blocks/Target Block Pieces/Lightning Selection/SelectedImage1.png" id="4_oycae"]
+[ext_resource type="Texture2D" uid="uid://bh6uguncw57fd" path="res://Sprites/Blocks/Target Block Pieces/Lightning Selection/SelectedImage2.png" id="5_iw2ph"]
+[ext_resource type="Texture2D" uid="uid://420pdf2b0ik7" path="res://Sprites/Blocks/Target Block Pieces/Lightning Selection/SelectedImage3.png" id="6_qhc7g"]
+[ext_resource type="Texture2D" uid="uid://cnsclc750rpk5" path="res://Sprites/Blocks/Target Block Pieces/Lightning Selection/SelectedImage4.png" id="7_n33yk"]
+[ext_resource type="Texture2D" uid="uid://dd3k81oo00nv2" path="res://Sprites/Blocks/Target Block Pieces/Lightning Selection/SelectedImage5.png" id="8_klp5m"]
+[ext_resource type="Texture2D" uid="uid://bmmd1kclvgt0k" path="res://Sprites/Blocks/Target Block Pieces/Lightning Selection/SelectedImage6.png" id="9_1xbeg"]
+[ext_resource type="Texture2D" uid="uid://bw0yx1bo7vg54" path="res://Sprites/Blocks/Target Block Pieces/Lightning Selection/SelectedImage7.png" id="10_fvqdd"]
+[ext_resource type="Texture2D" uid="uid://d4cn8fb86mods" path="res://Sprites/Blocks/Target Block Pieces/Lightning Selection/SelectedImage8.png" id="11_ou3en"]
+[ext_resource type="Texture2D" uid="uid://dj7kk2xhtefv4" path="res://Sprites/Blocks/Target Block Pieces/Lightning Selection/SelectedImage9.png" id="12_exhk3"]
+[ext_resource type="Texture2D" uid="uid://k068nouewj6h" path="res://Sprites/Blocks/Target Block Pieces/Lightning Selection/SelectedImage10.png" id="13_b0e81"]
+[ext_resource type="Texture2D" uid="uid://bn1scjrcfeupp" path="res://Sprites/Blocks/Target Block Pieces/Lightning Selection/SelectedImage11.png" id="14_8qshc"]
+[ext_resource type="Texture2D" uid="uid://c1nesfqhyvn7l" path="res://Sprites/Blocks/Target Block Pieces/Lightning Selection/SelectedImage12.png" id="15_2po3c"]
+[ext_resource type="Texture2D" uid="uid://vpcdnfvtm74c" path="res://Sprites/Blocks/Target Block Pieces/Lightning Selection/SelectedImage13.png" id="16_1gv32"]
+[ext_resource type="Texture2D" uid="uid://0uxtw32t3q7n" path="res://Sprites/Blocks/Target Block Pieces/Lightning Selection/SelectedImage14.png" id="17_744gy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vao50"]
+size = Vector2(12, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1djxd"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("4_oycae")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_iw2ph")
+}, {
+"duration": 2.0,
+"texture": ExtResource("6_qhc7g")
+}, {
+"duration": 1.5,
+"texture": ExtResource("7_n33yk")
+}, {
+"duration": 1.5,
+"texture": ExtResource("8_klp5m")
+}, {
+"duration": 2.0,
+"texture": ExtResource("9_1xbeg")
+}, {
+"duration": 2.0,
+"texture": ExtResource("10_fvqdd")
+}, {
+"duration": 2.0,
+"texture": ExtResource("11_ou3en")
+}, {
+"duration": 3.0,
+"texture": ExtResource("12_exhk3")
+}, {
+"duration": 2.0,
+"texture": ExtResource("13_b0e81")
+}, {
+"duration": 1.5,
+"texture": ExtResource("14_8qshc")
+}, {
+"duration": 1.5,
+"texture": ExtResource("15_2po3c")
+}, {
+"duration": 2.0,
+"texture": ExtResource("16_1gv32")
+}, {
+"duration": 2.0,
+"texture": ExtResource("17_744gy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="WireBlock" type="Area2D" groups=["Pushable", "WireBlock"]]
+script = ExtResource("1_r63g0")
+wire_directions = Array[Vector2]([])
+
+[node name="BaseSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_60u3t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vao50")
+
+[node name="WireSpriteContainer" type="Node2D" parent="."]
+
+[node name="WireCenter" type="Sprite2D" parent="WireSpriteContainer"]
+modulate = Color(1, 1, 0.670588, 1)
+z_index = 1
+texture = ExtResource("3_8cj7c")
+
+[node name="PowerDetectionRay" type="RayCast2D" parent="."]
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="SelectedSprite" type="AnimatedSprite2D" parent="."]
+z_index = 2
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_1djxd")
+autoplay = "default"
+frame_progress = 0.600514

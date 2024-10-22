@@ -1,0 +1,84 @@
+[gd_resource type="Theme" load_steps=16 format=3 uid="uid://b0a2au0y8lday"]
+
+[ext_resource type="Texture2D" uid="uid://dr2lov7ci7cmt" path="res://Sprites/UI/CheckButton1.png" id="1_4uke7"]
+[ext_resource type="Texture2D" uid="uid://w6bjw7r1uilx" path="res://Sprites/UI/Panel.png" id="1_b8ygg"]
+[ext_resource type="FontFile" uid="uid://bpnk0wp8i2coe" path="res://Theme,Fonts,Buses/BitPotion.ttf" id="1_p066v"]
+[ext_resource type="Texture2D" uid="uid://c1cbgfq4wexq5" path="res://Sprites/UI/Grabber1.png" id="1_xoufg"]
+[ext_resource type="Texture2D" uid="uid://bdi3o7wj7x3wk" path="res://Sprites/UI/CheckButton2.png" id="2_dxo7q"]
+[ext_resource type="Texture2D" uid="uid://joprqwvkmtx6" path="res://Sprites/UI/Grabber2.png" id="2_yijup"]
+[ext_resource type="Texture2D" uid="uid://dnjcwknrcgdwf" path="res://Sprites/UI/SliderBar2.png" id="3_dblgr"]
+[ext_resource type="Texture2D" uid="uid://jfhje8ngno68" path="res://Sprites/UI/SliderBar1.png" id="4_odbqe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_42umx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h57pl"]
+texture = ExtResource("4_odbqe")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ntui8"]
+texture = ExtResource("4_odbqe")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nxy8o"]
+texture = ExtResource("3_dblgr")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wmsy4"]
+texture = ExtResource("1_b8ygg")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ivpwc"]
+texture = ExtResource("1_b8ygg")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+expand_margin_left = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t6hh0"]
+texture = ExtResource("1_b8ygg")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[resource]
+default_font = ExtResource("1_p066v")
+default_font_size = 0
+CheckButton/icons/checked = ExtResource("1_4uke7")
+CheckButton/icons/unchecked = ExtResource("2_dxo7q")
+CheckButton/styles/focus = SubResource("StyleBoxEmpty_42umx")
+HSlider/constants/center_grabber = 1
+HSlider/icons/grabber = ExtResource("1_xoufg")
+HSlider/icons/grabber_highlight = ExtResource("2_yijup")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_h57pl")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_ntui8")
+HSlider/styles/slider = SubResource("StyleBoxTexture_nxy8o")
+Label/colors/font_shadow_color = Color(0, 0.12549, 0.333333, 1)
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 0
+Panel/styles/panel = SubResource("StyleBoxTexture_wmsy4")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_ivpwc")
+TooltipLabel/colors/font_shadow_color = Color(0, 0.407843, 0.898039, 1)
+TooltipLabel/constants/shadow_offset_x = 1
+TooltipLabel/constants/shadow_offset_y = 1
+TooltipPanel/styles/panel = SubResource("StyleBoxTexture_t6hh0")

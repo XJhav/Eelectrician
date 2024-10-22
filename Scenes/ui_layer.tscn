@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://d02rx8708cucg"]
+
+[ext_resource type="PackedScene" uid="uid://b0iov7dwt1hm3" path="res://Scenes/level_ui.tscn" id="1_xm6ba"]
+[ext_resource type="Texture2D" uid="uid://bd5623e12mxd6" path="res://Sprites/UI/LevelNameBarThing.png" id="2_0ak4w"]
+
+[node name="UILayer" type="CanvasLayer"]
+layer = 0
+offset = Vector2(-240, -135)
+transform = Transform2D(1, 0, 0, 1, -240, -135)
+follow_viewport_enabled = true
+
+[node name="Level UI" parent="." instance=ExtResource("1_xm6ba")]
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="LevelTitle" type="Label" parent="." groups=["LevelTitle"]]
+self_modulate = Color(1, 1, 0.611765, 1)
+offset_left = -200.0
+offset_top = 240.0
+offset_right = -36.0
+offset_bottom = 266.0
+theme_override_colors/font_shadow_color = Color(0.0222214, 0.257698, 0.999995, 1)
+theme_override_font_sizes/font_size = 32
+text = "INSERT LEVEL NAME"
+
+[node name="TextureRect" type="NinePatchRect" parent="LevelTitle"]
+layout_mode = 0
+offset_left = -117.0
+offset_top = 7.0
+offset_right = -6.0
+offset_bottom = 23.0
+texture = ExtResource("2_0ak4w")
+patch_margin_right = 19
+
+[node name="LevelNumber" type="Label" parent="." groups=["LevelNumber"]]
+self_modulate = Color(1, 1, 0.54902, 1)
+offset_left = 378.0
+offset_top = 240.0
+offset_right = 474.0
+offset_bottom = 266.0
+theme_override_colors/font_shadow_color = Color(0.0222214, 0.257698, 0.999995, 1)
+theme_override_font_sizes/font_size = 32
+text = "1-1"
+horizontal_alignment = 2

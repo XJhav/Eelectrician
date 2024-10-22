@@ -1,0 +1,100 @@
+[gd_scene load_steps=10 format=3 uid="uid://d61rubx2sni8"]
+
+[ext_resource type="Script" path="res://Scripts/LevelSelectMenu.gd" id="1_6fcq8"]
+[ext_resource type="PackedScene" uid="uid://bl12nhtb387e5" path="res://Scenes/shader_layer.tscn" id="2_7xvi1"]
+[ext_resource type="Texture2D" uid="uid://cm36ytn6ubfjg" path="res://Sprites/UI/pausebutton7.png" id="3_ml1iq"]
+[ext_resource type="Texture2D" uid="uid://b2utixqrqrb6d" path="res://Sprites/UI/pausebutton9.png" id="4_416gh"]
+[ext_resource type="Texture2D" uid="uid://b68lowy5m1l2d" path="res://Sprites/UI/pausebutton8.png" id="5_r3npy"]
+[ext_resource type="Script" path="res://Scripts/SceneLoadButton.gd" id="6_3omgh"]
+[ext_resource type="PackedScene" uid="uid://d3slwhscysaen" path="res://Scenes/level_select_button.tscn" id="7_vepbn"]
+[ext_resource type="Texture2D" uid="uid://blkhfrwsig7u6" path="res://Sprites/UI/SceneTitles4.png" id="8_fkebk"]
+[ext_resource type="Texture2D" uid="uid://b8q1tq2giftqo" path="res://Sprites/UI/line.png" id="9_tbi7u"]
+
+[node name="LevelSelectRed" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6fcq8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ShaderLayer" parent="." instance=ExtResource("2_7xvi1")]
+color = "Red"
+
+[node name="UI Layer" type="CanvasLayer" parent="."]
+offset = Vector2(-240, -135)
+transform = Transform2D(1, 0, 0, 1, -240, -135)
+follow_viewport_enabled = true
+
+[node name="BackButton" type="TextureButton" parent="UI Layer"]
+offset_left = 13.0
+offset_top = 11.0
+offset_right = 38.0
+offset_bottom = 36.0
+texture_normal = ExtResource("3_ml1iq")
+texture_pressed = ExtResource("4_416gh")
+texture_hover = ExtResource("5_r3npy")
+script = ExtResource("6_3omgh")
+
+[node name="GridContainer" type="GridContainer" parent="UI Layer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.5
+offset_top = -20.0
+offset_right = 73.5
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 36
+theme_override_constants/v_separation = 35
+columns = 3
+
+[node name="LevelSelectButton1" parent="UI Layer/GridContainer" instance=ExtResource("7_vepbn")]
+layout_mode = 2
+
+[node name="LevelSelectButton2" parent="UI Layer/GridContainer" instance=ExtResource("7_vepbn")]
+layout_mode = 2
+
+[node name="LevelSelectButton3" parent="UI Layer/GridContainer" instance=ExtResource("7_vepbn")]
+layout_mode = 2
+
+[node name="LevelSelectButton4" parent="UI Layer/GridContainer" instance=ExtResource("7_vepbn")]
+layout_mode = 2
+
+[node name="LevelSelectButton5" parent="UI Layer/GridContainer" instance=ExtResource("7_vepbn")]
+layout_mode = 2
+
+[node name="LevelSelectButton6" parent="UI Layer/GridContainer" instance=ExtResource("7_vepbn")]
+layout_mode = 2
+
+[node name="Title" type="TextureRect" parent="UI Layer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -98.0
+offset_top = 9.0
+offset_right = 182.0
+offset_bottom = 58.0
+grow_horizontal = 2
+texture = ExtResource("8_fkebk")
+stretch_mode = 2
+
+[node name="Line" type="TextureRect" parent="UI Layer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_top = 54.0
+offset_right = 250.0
+offset_bottom = 103.0
+grow_horizontal = 2
+texture = ExtResource("9_tbi7u")
+stretch_mode = 2

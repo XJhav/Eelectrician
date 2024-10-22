@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://cviq85iecx7kk"]
+
+[ext_resource type="PackedScene" uid="uid://dijyi58p1cpce" path="res://Scenes/snake_player.tscn" id="1_4rm6t"]
+[ext_resource type="Script" path="res://Scripts/LevelManager.gd" id="1_7ku7e"]
+[ext_resource type="Shader" path="res://Scripts/base_level.gdshader" id="2_ffpht"]
+[ext_resource type="PackedScene" uid="uid://bb1mgnwjo05u6" path="res://Scenes/power_tile.tscn" id="3_txc4i"]
+[ext_resource type="PackedScene" uid="uid://61ov2bwbkhio" path="res://Scenes/wire_block.tscn" id="5_5e565"]
+[ext_resource type="PackedScene" uid="uid://dvpv4vwytc3rc" path="res://Scenes/target_block.tscn" id="6_gweeb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_um015"]
+shader = ExtResource("2_ffpht")
+
+[sub_resource type="TileSet" id="TileSet_yirhs"]
+
+[node name="Base Level" type="Node2D"]
+script = ExtResource("1_7ku7e")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_um015")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -135.0
+offset_right = -240.0
+offset_bottom = -135.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="PowerTile" parent="." instance=ExtResource("3_txc4i")]
+position = Vector2(32, 32)
+
+[node name="WireBlock" parent="." instance=ExtResource("5_5e565")]
+position = Vector2(-16, 32)
+wire_directions = Array[Vector2]([Vector2(-1, 0), Vector2(1, 0)])
+
+[node name="WireBlock2" parent="." instance=ExtResource("5_5e565")]
+position = Vector2(-48, 48)
+wire_directions = Array[Vector2]([Vector2(0, -1), Vector2(-1, 0)])
+
+[node name="WireBlock3" parent="." instance=ExtResource("5_5e565")]
+position = Vector2(-32, 16)
+wire_directions = Array[Vector2]([Vector2(0, 1), Vector2(0, -1)])
+
+[node name="SnakePlayer" parent="." instance=ExtResource("1_4rm6t")]
+starting_snake = Array[Vector2]([Vector2(0, 0), Vector2(1, 0), Vector2(2, 0), Vector2(2, 1), Vector2(2, 2), Vector2(0, 0), Vector2(0, 0)])
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_yirhs")
+format = 2
+
+[node name="Target Block" parent="." instance=ExtResource("6_gweeb")]
+position = Vector2(32, 80)

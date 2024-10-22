@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b174pm7e2rxkp"]
+
+[ext_resource type="Texture2D" uid="uid://bd4cgd2gcxcoa" path="res://Sprites/Snake/SnakeBlock1.png" id="1_0vug5"]
+
+[node name="SnakeBlockSprite" type="Sprite2D"]
+texture = ExtResource("1_0vug5")

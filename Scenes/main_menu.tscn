@@ -1,0 +1,135 @@
+[gd_scene load_steps=8 format=3 uid="uid://cvq5wsb4sgh5"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_b1kq0"]
+[ext_resource type="PackedScene" uid="uid://bl12nhtb387e5" path="res://Scenes/shader_layer.tscn" id="1_gu3tx"]
+[ext_resource type="Texture2D" uid="uid://bp00nq5fi4who" path="res://Sprites/Title1.png" id="2_uogy7"]
+[ext_resource type="Texture2D" uid="uid://ucdxq2a376lt" path="res://Sprites/Electricity.png" id="3_fwng0"]
+[ext_resource type="Texture2D" uid="uid://0nkhcesb8wbp" path="res://Sprites/UI/Button1.png" id="3_gfx0w"]
+[ext_resource type="Texture2D" uid="uid://m6ckccntnoru" path="res://Sprites/UI/Button3.png" id="4_tf0q4"]
+[ext_resource type="Texture2D" uid="uid://m860as2fk6rv" path="res://Sprites/UI/Button2.png" id="5_yaufo"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b1kq0")
+
+[node name="ShaderLayer" parent="." instance=ExtResource("1_gu3tx")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(-240, -135)
+transform = Transform2D(1, 0, 0, 1, -240, -135)
+follow_viewport_enabled = true
+
+[node name="Play Button" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = 30.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture_normal = ExtResource("3_gfx0w")
+texture_pressed = ExtResource("4_tf0q4")
+texture_hover = ExtResource("5_yaufo")
+
+[node name="Label" type="Label" parent="CanvasLayer/Play Button"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 65.0
+offset_bottom = 19.0
+text = "PLAY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Reset Data" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = 86.0
+offset_right = 33.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_gfx0w")
+texture_pressed = ExtResource("4_tf0q4")
+texture_hover = ExtResource("5_yaufo")
+
+[node name="Label" type="Label" parent="CanvasLayer/Reset Data"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 65.0
+offset_bottom = 19.0
+text = "RESET DATA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -169.0
+offset_top = -105.0
+offset_right = 169.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_uogy7")
+stretch_mode = 2
+
+[node name="Electricity" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -32.0
+offset_right = 250.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_fwng0")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -133.0
+offset_top = -28.0
+offset_right = -3.0
+offset_bottom = -2.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.763106, 0.782918, 0.4835, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0.454902, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 32
+text = "BY JHAX GAMES"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="mouse_entered" from="CanvasLayer/Play Button" to="." method="_on_play_button_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/Play Button" to="." method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Reset Data" to="." method="_on_reset_data_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/Reset Data" to="." method="_on_reset_data_pressed"]

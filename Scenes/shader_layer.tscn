@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl12nhtb387e5"]
+
+[ext_resource type="Shader" path="res://Scripts/palette_limit.gdshader" id="1_5leea"]
+[ext_resource type="Script" path="res://Scripts/ColorPaletteSwitch.gd" id="1_25rak"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_um015"]
+resource_local_to_scene = true
+shader = ExtResource("1_5leea")
+shader_parameter/darkest_shade = Color(0.11, 0.1, 0.19, 1)
+shader_parameter/dark_shade = Color(0.15, 0.24, 0.43, 1)
+shader_parameter/light_shade = Color(0.18, 0.45, 0.62, 1)
+shader_parameter/lightest_shade = Color(0.29, 0.76, 0.81, 1)
+
+[node name="ShaderLayer" type="CanvasLayer"]
+layer = 10
+offset = Vector2(-240, -135)
+transform = Transform2D(1, 0, 0, 1, -240, -135)
+follow_viewport_enabled = true
+script = ExtResource("1_25rak")
+
+[node name="ColorRect" type="ColorRect" parent="." groups=["PaletteLimit"]]
+material = SubResource("ShaderMaterial_um015")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true

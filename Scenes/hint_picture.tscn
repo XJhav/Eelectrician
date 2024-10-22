@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://mun6n625ycjg"]
+
+[ext_resource type="Texture2D" uid="uid://dgj7op728m6nt" path="res://Sprites/UI/Infographics/Infographics1.png" id="1_spefa"]
+[ext_resource type="Script" path="res://Scripts/HintPicture.gd" id="2_jjncf"]
+
+[node name="HintPicture" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_spefa")
+script = ExtResource("2_jjncf")
+
+[node name="TooltipPanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 32.0
+offset_bottom = 41.0
+
+[node name="Label" type="Label" parent="TooltipPanelContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.960784, 0.85098, 1)
+theme_override_colors/font_shadow_color = Color(0.14902, 0.239216, 0.431373, 1)
+text = "Info"
+horizontal_alignment = 1

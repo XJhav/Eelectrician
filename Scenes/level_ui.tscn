@@ -1,0 +1,174 @@
+[gd_scene load_steps=16 format=3 uid="uid://b0iov7dwt1hm3"]
+
+[ext_resource type="PackedScene" uid="uid://du70aggw06fus" path="res://Scenes/pause_menu.tscn" id="1_6q5nc"]
+[ext_resource type="Script" path="res://Scripts/LevelUI.gd" id="1_yysfo"]
+[ext_resource type="Texture2D" uid="uid://n5gq510l0m1a" path="res://Sprites/UI/pausebutton1.png" id="2_c3kjs"]
+[ext_resource type="Texture2D" uid="uid://dgfleeh47svdl" path="res://Sprites/UI/pausebutton3.png" id="3_do2pk"]
+[ext_resource type="Texture2D" uid="uid://cwxikm5l5c15q" path="res://Sprites/UI/pausebutton2.png" id="4_jb167"]
+[ext_resource type="Texture2D" uid="uid://dlfw4vrj2bnx4" path="res://Sprites/UI/EnergySegment.png" id="5_miqak"]
+[ext_resource type="Texture2D" uid="uid://btsk1jnm6cs6n" path="res://Sprites/UI/pausebutton4.png" id="6_1t3lu"]
+[ext_resource type="Texture2D" uid="uid://cm36ytn6ubfjg" path="res://Sprites/UI/pausebutton7.png" id="6_qapc0"]
+[ext_resource type="Texture2D" uid="uid://ex3odtum36vj" path="res://Sprites/UI/pausebutton6.png" id="7_qf8fe"]
+[ext_resource type="Texture2D" uid="uid://c8myfw5usvu47" path="res://Sprites/UI/EnergyContainerOutline.png" id="7_xr31j"]
+[ext_resource type="Texture2D" uid="uid://b2utixqrqrb6d" path="res://Sprites/UI/pausebutton9.png" id="7_ygfo0"]
+[ext_resource type="Texture2D" uid="uid://djblslk88qh2j" path="res://Sprites/UI/EnergySymbol.png" id="8_2phss"]
+[ext_resource type="Texture2D" uid="uid://doyica1b1u5wp" path="res://Sprites/UI/pausebutton5.png" id="8_4j8ao"]
+[ext_resource type="Texture2D" uid="uid://b68lowy5m1l2d" path="res://Sprites/UI/pausebutton8.png" id="8_mp033"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1lw54"]
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
+texture = ExtResource("7_xr31j")
+texture_margin_left = 11.0
+texture_margin_top = 3.0
+texture_margin_right = 11.0
+texture_margin_bottom = 3.0
+
+[node name="Level UI" type="Control" groups=["LevelUI"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yysfo")
+
+[node name="PauseMenu" parent="." instance=ExtResource("1_6q5nc")]
+visible = false
+z_index = 10
+layout_mode = 1
+
+[node name="PauseButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -33.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 33.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_c3kjs")
+texture_pressed = ExtResource("3_do2pk")
+texture_hover = ExtResource("4_jb167")
+
+[node name="UndoButton" type="TextureButton" parent="." groups=["UndoButton"]]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -93.0
+offset_top = 8.0
+offset_right = -68.0
+offset_bottom = 33.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("6_qapc0")
+texture_pressed = ExtResource("7_ygfo0")
+texture_hover = ExtResource("8_mp033")
+
+[node name="RestartButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -63.0
+offset_top = 8.0
+offset_right = -38.0
+offset_bottom = 33.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("6_1t3lu")
+texture_pressed = ExtResource("7_qf8fe")
+texture_hover = ExtResource("8_4j8ao")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 10.0
+offset_right = 173.0
+offset_bottom = 44.0
+
+[node name="EnergyBar" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 190.0
+offset_bottom = 38.0
+
+[node name="Outline" type="PanelContainer" parent="EnergyBar"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 7.0
+offset_right = 106.0
+offset_bottom = 31.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_1lw54")
+
+[node name="EnergySegmentContainer" type="HBoxContainer" parent="EnergyBar/Outline"]
+layout_mode = 2
+theme_override_constants/separation = -10
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="EnergyBar/Outline/EnergySegmentContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_miqak")
+region_rect = Rect2(0, 0, 28, 18)
+patch_margin_left = 11
+patch_margin_top = 3
+patch_margin_right = 10
+patch_margin_bottom = 3
+
+[node name="NinePatchRect4" type="NinePatchRect" parent="EnergyBar/Outline/EnergySegmentContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_miqak")
+region_rect = Rect2(0, 0, 28, 18)
+patch_margin_left = 11
+patch_margin_top = 3
+patch_margin_right = 10
+patch_margin_bottom = 3
+
+[node name="NinePatchRect5" type="NinePatchRect" parent="EnergyBar/Outline/EnergySegmentContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_miqak")
+region_rect = Rect2(0, 0, 28, 18)
+patch_margin_left = 11
+patch_margin_top = 3
+patch_margin_right = 10
+patch_margin_bottom = 3
+
+[node name="NinePatchRect7" type="NinePatchRect" parent="EnergyBar/Outline/EnergySegmentContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_miqak")
+region_rect = Rect2(0, 0, 28, 18)
+patch_margin_left = 11
+patch_margin_top = 3
+patch_margin_right = 10
+patch_margin_bottom = 3
+
+[node name="NinePatchRect8" type="NinePatchRect" parent="EnergyBar/Outline/EnergySegmentContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_miqak")
+region_rect = Rect2(0, 0, 28, 18)
+patch_margin_left = 11
+patch_margin_top = 3
+patch_margin_right = 10
+patch_margin_bottom = 3
+
+[node name="TextureRect" type="TextureRect" parent="EnergyBar"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 29.0
+offset_bottom = 32.0
+texture = ExtResource("8_2phss")
+stretch_mode = 2
+
+[connection signal="main_menu_pressed" from="PauseMenu" to="." method="_on_pause_menu_main_menu_pressed"]
+[connection signal="resume_pressed" from="PauseMenu" to="." method="_on_pause_menu_resume_pressed"]
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]

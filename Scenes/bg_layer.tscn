@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dbqameer106vl"]
+
+[node name="BGLayer" type="CanvasLayer"]
+layer = -10
+offset = Vector2(-240, -135)
+transform = Transform2D(1, 0, 0, 1, -240, -135)
+follow_viewport_enabled = true
